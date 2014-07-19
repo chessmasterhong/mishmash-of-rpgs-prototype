@@ -9,6 +9,6 @@ gulp.task('lint', function() {
             './lib/plugins/**/*.js',
             '!./lib/game/{,maps,maps/**/*}'
         ])
-        .pipe(jshint())
+        .pipe(jshint('.jshintrc'))
         .pipe(jshint.reporter(require('jshint-stylish')));
 });

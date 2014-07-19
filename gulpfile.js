@@ -1,5 +1,8 @@
 'use strict';
 
+var PORT = 8080,
+    SOURCE_DIR = './lib/';
+
 var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     shell = require('gulp-shell'),
@@ -7,9 +10,9 @@ var gulp = require('gulp'),
 
 gulp.task('lint', function() {
     return gulp.src([
-            './lib/game/**/*.js',
-            './lib/plugins/**/*.js',
-            '!./lib/game/{,maps,maps/**/*}'
+            SOURCE_DIR + 'game/**/*.js',
+            SOURCE_DIR + 'plugins/**/*.js',
+            '!' + SOURCE_DIR + 'game/{,maps,maps/**/*}'
         ])
         .pipe(jshint('.jshintrc'))
         .pipe(jshint.reporter(require('jshint-stylish')));
@@ -24,11 +27,13 @@ gulp.task('webserver', function() {
     gulp.src('.')
         .pipe(webserver({
             host: '127.0.0.1',
-            port: 8080,
+            port: PORT,
             livereload: true
         }));
 });
 
 gulp.task('watch', function() {
-    gulp.watch('./lib/**/*.js', ['lint']);
+    gulp.watch(SOURCE_DIR + '**/*.js', ['lint']);
 });
+
+gulp.task('default', ['webserver', 'watch']);

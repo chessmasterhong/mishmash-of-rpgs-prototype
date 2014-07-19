@@ -10,12 +10,16 @@ gulp.task('lint', function() {
             './lib/plugins/**/*.js',
             '!./lib/game/{,maps,maps/**/*}'
         ])
-        .pipe(jshint('.jshintrc'))
+        .pipe(jshint('./.jshintrc'))
         .pipe(jshint.reporter(require('jshint-stylish')));
 });
 
 gulp.task('doc', function() {
     return gulp.src(['./README.md'])
-        .pipe(shell(['jsdoc -c ./jsdoc.conf.json']));
+        .pipe(shell(['./jsdoc -c ./jsdoc.conf.json']));
 });
 
+gulp.task('watch', function() {
+    gulp.watch('./index.html');
+    gulp.watch('./lib/**/*.js', ['lint']);
+});

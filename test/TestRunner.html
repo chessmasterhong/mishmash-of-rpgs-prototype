@@ -17,36 +17,38 @@
         <script type="text/javascript" src="../node_modules/requirejs/require.js"></script>
 
         <script type="text/javascript">
-            requirejs.config({
-                baseUrl: '../',
-                paths: {
-                    chai: 'node_modules/chai/chai',
-                    mocha: 'node_modules/mocha/mocha',
-                    spec: 'test/spec/'
-                }
-            });
-
-            require([
-                'require', 'chai', 'mocha'
-            ], function(require, chai) {
-                assert = (chai && chai.assert) || require('chai').assert;
-                expect = (chai && chai.expect) || require('chai').expect;
-                should = (chai && chai.should) || require('chai').should();
-
-                mocha.setup('bdd');
-                //mocha.ui('bdd');
-                //mocha.reporter('html');
-
-                require([
-                    'spec/GameSpec',
-                ], function(require) {
-                    if(window.mochaPhantomJS) {
-                        return mochaPhantomJS.run();
-                    } else {
-                        return mocha.run();
+            window.onload = function() {
+                requirejs.config({
+                    baseUrl: '../',
+                    paths: {
+                        chai: 'node_modules/chai/chai',
+                        mocha: 'node_modules/mocha/mocha',
+                        spec: 'test/spec/'
                     }
                 });
-            });
+
+                require([
+                    'require', 'chai', 'mocha'
+                ], function(require, chai) {
+                    assert = (chai && chai.assert) || require('chai').assert;
+                    expect = (chai && chai.expect) || require('chai').expect;
+                    should = (chai && chai.should) || require('chai').should();
+
+                    mocha.setup('bdd');
+                    //mocha.ui('bdd');
+                    //mocha.reporter('html');
+
+                    require([
+                        'spec/GameSpec',
+                    ], function(require) {
+                        if(window.mochaPhantomJS) {
+                            return mochaPhantomJS.run();
+                        } else {
+                            return mocha.run();
+                        }
+                    });
+                });
+            }
         </script>
     </head>
 

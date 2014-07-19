@@ -7,6 +7,8 @@
   "devDependencies": {
     "gulp": "^3.8.6",
     "gulp-jshint": "^1.7.1",
+    "gulp-shell": "^0.2.8",
+    "jsdoc": "^3.3.0-alpha9",
     "jshint-stylish": "^0.4.0"
   }
 }

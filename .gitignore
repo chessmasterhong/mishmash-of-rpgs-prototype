@@ -1,9 +1,14 @@
+node_modules
+
 impact
-media
 tools
 weltmeister
 
-node_modules
+docs
+docstrap
+out
+
+media
 
 weltmeister.html
 server.*

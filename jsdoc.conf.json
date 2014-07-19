@@ -1,0 +1,54 @@
+{
+    "source": {
+        "include": [
+            "./README.md",
+            "./lib/game/",
+            "./lib/plugins/"
+        ],
+        "exclude": [
+            "./lib/game/maps/"
+        ],
+        "includePattern": ".+\\.js(doc)?$",
+        "excludePattern": "(^|\\/|\\\\)_"
+    },
+
+    "opts": {
+        "destination": "./docs/",
+        "encoding"   : "utf8",
+        "lenient"    : true,
+        "private"    : false,
+        "recurse"    : true,
+        "template"   : "./docstrap/template/"
+    },
+
+    "tags": {
+        "allowUnknownTags": true
+    },
+
+    "plugins": [
+        "plugins/markdown"
+    ],
+
+    "templates": {
+        "cleverLinks"          : false,
+        "collapseSymbols"      : false,
+        "copyright"            : "",
+        "dateFormat"           : "dddd, MMMM DD YYYY HH:mm:ss [GMT]ZZ",
+        "footer"               : "",
+        "highlightTutorialCode": true,
+        "inverseNav"           : true,
+        "linenums"             : true,
+        "monospaceLinks"       : false,
+        "navType"              : "vertical",
+        "outputSourceFiles"    : true,
+        "outputSourcePath"     : true,
+        "systemName"           : "Mishmash of RPGs",
+        "theme"                : "default",
+        "tutorials"            : "./tutorials/"
+    },
+
+    "markdown": {
+        "parser"  : "gfm",
+        "hardwrap": true
+    }
+}

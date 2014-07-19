@@ -3,8 +3,13 @@ media
 tools
 weltmeister
 
+node_modules
+
 weltmeister.html
 server.*
+
+*.bat
+*.lnk
 
 .DS_Store
 Thumbs.db

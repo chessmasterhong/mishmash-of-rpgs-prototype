@@ -5,10 +5,15 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
+    "chai": "^1.9.1",
     "gulp": "^3.8.6",
     "gulp-jshint": "^1.7.1",
     "gulp-shell": "^0.2.8",
     "jsdoc": "^3.3.0-alpha9",
-    "jshint-stylish": "^0.4.0"
+    "jshint-stylish": "^0.4.0",
+    "mocha": "^1.20.1",
+    "mocha-phantomjs": "^3.5.0",
+    "phantomjs": "^1.9.7-14",
+    "requirejs": "^2.1.14"
   }
 }

@@ -43,9 +43,9 @@
                     'spec/MainPlayerSpec'
                 ], function(require) {
                     if(window.mochaPhantomJS) {
-                        return mochaPhantomJS.run();
+                        mochaPhantomJS.run();
                     } else {
-                        return mocha.run();
+                        mocha.run();
                     }
                 });
             });

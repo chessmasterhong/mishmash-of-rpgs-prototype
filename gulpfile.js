@@ -21,6 +21,11 @@ gulp.task('lint', function() {
         .pipe(jshint.reporter(require('jshint-stylish')));
 });
 
+gulp.task('test', function() {
+    gulp.src('./TestRunner.html')
+        .pipe(shell(['mocha-phantomjs -R spec ./TestRunner.html']));
+});
+
 gulp.task('doc', function() {
     return gulp.src(['./README.md'])
         .pipe(shell(['jsdoc -c ./jsdoc.conf.json']));
@@ -45,6 +50,6 @@ gulp.task('watch', function() {
 
 gulp.task('default', ['webserver', 'watch']);
 
-gulp.task('build', ['clean'], function() {
-    gulp.start('lint', 'doc');
+gulp.task('build', ['clean', 'lint', 'test'], function() {
+    gulp.start('doc');
 });

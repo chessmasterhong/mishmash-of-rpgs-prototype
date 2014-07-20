@@ -25,3 +25,12 @@ Game controls and movement.
 [x] Implement grid movement for all entities.
 ```
 
+### v0.0.3
+
+Game states and map transitions.
+
+```
+[ ] Establish game states and functionalities.
+[ ] Implement map transition (ability to move between maps/zones/levels/floors and back).
+[ ] Ensure correct placement of player when returning back to the world map.
+```

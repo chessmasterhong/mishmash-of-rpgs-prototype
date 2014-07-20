@@ -9,8 +9,16 @@ describe('Main Player', function() {
 
     describe('Initialization', function() {
         it('should exist in the game world', function() {
-            // TODO: Refine this test to check if entity is an instance of main player entity
-            expect(ig.game.entities[0]).to.exist;
+            expect(ig.game.entities).to.not.be.empty;
+
+            var mainPlayerInstance = false;
+            for(var i = 0; i < ig.game.entities.length; i++) {
+                if(ig.game.entities[i] instanceof ig.global.EntityMain_player) {
+                    mainPlayerInstance = true;
+                }
+            }
+
+            expect(mainPlayerInstance).to.be.true;
         });
     });
 

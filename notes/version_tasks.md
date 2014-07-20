@@ -19,9 +19,9 @@ Development environment setup, directory structure organization, and essential w
 Game controls and movement.
 
 ```
-[ ] Determine general game controls.
-[ ] Load a simple game with top-down perspective.
-[ ] Navigate around in the game world using 4-directional movement.
-[ ] Implement grid movement for all entities.
+[x] Determine general game controls.
+[x] Load a simple game with top-down perspective.
+[x] Navigate around in the game world using 4-directional movement.
+[x] Implement grid movement for all entities.
 ```
 

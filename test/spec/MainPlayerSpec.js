@@ -15,13 +15,13 @@ describe('Main Player', function() {
     });
 
     describe('Directional movement', function() {
-        it('should not move when no directional buttons are pressed', function() {
+        it('should not move when no directional keys are pressed', function() {
             expect(ig.input.actions).to.be.empty;
             expect(ig.game.entities[0].vel.x).to.equal(0);
             expect(ig.game.entities[0].vel.y).to.equal(0);
         });
 
-        it('should move up when the up directional button is pressed', function() {
+        it('should move up when the up directional key is pressed', function() {
             ig.input.actions = { UP: true };
             setTimeout(function() {
                 expect(ig.game.entities[0].vel.x).to.equal(0);
@@ -30,7 +30,7 @@ describe('Main Player', function() {
             }, 100);
         });
 
-        it('should move down when the down directional button is pressed', function() {
+        it('should move down when the down directional key is pressed', function() {
             ig.input.actions = { DOWN: true };
             setTimeout(function() {
                 expect(ig.game.entities[0].vel.x).to.equal(0);
@@ -39,7 +39,7 @@ describe('Main Player', function() {
             }, 100);
         });
 
-        it('should move left when the left directional button is pressed', function() {
+        it('should move left when the left directional key is pressed', function() {
             ig.input.actions = { LEFT: true };
             setTimeout(function() {
                 expect(ig.game.entities[0].vel.x).to.be.below(0);
@@ -48,7 +48,7 @@ describe('Main Player', function() {
             }, 100);
         });
 
-        it('should move right when the right directional button is pressed', function() {
+        it('should move right when the right directional key is pressed', function() {
             ig.input.actions = { RIGHT: true };
             setTimeout(function() {
                 expect(ig.game.entities[0].vel.x).to.be.above(0);

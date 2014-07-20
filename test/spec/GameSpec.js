@@ -24,4 +24,30 @@ describe('Game', function() {
             expect(ig.system.scale).to.equal(1);
         });
     });
+
+    describe('Input controls', function() {
+        it('should have directional keybindings assigned', function() {
+            expect(ig.input.bindings).to.not.be.empty;
+
+            var assignedKeys = {};
+            for(var key in ig.input.bindings) {
+                if(ig.input.bindings.hasOwnProperty(key)) {
+                    if(ig.input.bindings[key] === 'UP') {
+                        assignedKeys.up = key;
+                    } else if(ig.input.bindings[key] === 'DOWN') {
+                        assignedKeys.down = key;
+                    } else if(ig.input.bindings[key] === 'LEFT') {
+                        assignedKeys.left = key;
+                    } else if(ig.input.bindings[key] === 'RIGHT') {
+                        assignedKeys.right = key;
+                    }
+                }
+            }
+
+            expect(assignedKeys.up).to.exist;
+            expect(assignedKeys.down).to.exist;
+            expect(assignedKeys.left).to.exist;
+            expect(assignedKeys.right).to.exist;
+        });
+    });
 });

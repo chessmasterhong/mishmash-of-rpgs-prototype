@@ -78,8 +78,8 @@
                 waitFor(function() {
                     return ig.game.entities[mainPlayerIndex].vel.x === 0 && ig.game.entities[mainPlayerIndex].vel.y === 0;
                 }, function() {
-                    expect(ig.game.entities[mainPlayerIndex].pos.x % 32).to.equal(0);
-                    expect(ig.game.entities[mainPlayerIndex].pos.y % 32).to.equal(0);
+                    expect(ig.game.entities[mainPlayerIndex].pos.x % ig.global.TILESIZE).to.equal(0);
+                    expect(ig.game.entities[mainPlayerIndex].pos.y % ig.global.TILESIZE).to.equal(0);
                 });
             });
         });

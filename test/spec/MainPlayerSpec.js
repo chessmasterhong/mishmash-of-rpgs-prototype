@@ -1,48 +1,60 @@
-/**
- *  Wait until the test condition is true or a timeout occurs. Useful for waiting
- *  on a server response or for a ui change (fadeIn, etc.) to occur.
- *
- *  @param testFx javascript condition that evaluates to a boolean,
- *  it can be passed in as a string (e.g.: "1 == 1" or "$('#bar').is(':visible')" or
- *  as a callback function.
- *  @param onReady what to do when testFx condition is fulfilled,
- *  it can be passed in as a string (e.g.: "1 == 1" or "$('#bar').is(':visible')" or
- *  as a callback function.
- *  @param timeOutMillis the max amount of time to wait. If not specified, 3 sec is used.
- *
- *  https://github.com/ariya/phantomjs/blob/master/examples/waitfor.js
- */
-function waitFor(testFx, onReady, timeOutMillis) {
-    var maxtimeOutMillis = timeOutMillis ? timeOutMillis : 3000, //< Default Max Timout is 3s
-    start = new Date().getTime(),
-    condition = false,
-    interval = setInterval(function() {
-        if ( (new Date().getTime() - start < maxtimeOutMillis) && !condition ) {
-            // If not time-out yet and condition not yet fulfilled
-            condition = (typeof(testFx) === "string" ? eval(testFx) : testFx()); //< defensive code
-        } else {
-            if(!condition) {
-                // If condition still not fulfilled (timeout but condition is 'false')
-                console.log("'waitFor()' timeout");
-                phantom.exit(1);
-            } else {
-                // Condition fulfilled (timeout and/or condition is 'true')
-                console.log("'waitFor()' finished in " + (new Date().getTime() - start) + "ms.");
-                typeof(onReady) === "string" ? eval(onReady) : onReady(); //< Do what it's supposed to do once the condition is fulfilled
-                clearInterval(interval); //< Stop this interval
-            }
-        }
-    }, 250); //< repeat check every 250ms
-};
-
-
 describe('Main Player', function() {
-    it('should exist in the game world', function() {
+    beforeEach(function(done) {
         waitFor(function() {
             return ig.game;
         }, function() {
+            done();
+        });
+    });
+
+    describe('Initialization', function() {
+        it('should exist in the game world', function() {
             // TODO: Refine this test to check if entity is an instance of main player entity
             expect(ig.game.entities[0]).to.exist;
+        });
+    });
+
+    describe('Directional movement', function() {
+        it('should not be moving when no directional buttons are pressed', function() {
+            expect(ig.input.actions).to.be.empty;
+            expect(ig.game.entities[0].vel.x).to.equal(0);
+            expect(ig.game.entities[0].vel.y).to.equal(0);
+        });
+
+        it('should move up when the up directional button is pressed', function() {
+            ig.input.actions = { UP: true };
+            setTimeout(function() {
+                expect(ig.game.entities[0].vel.x).to.equal(0);
+                expect(ig.game.entities[0].vel.y).to.be.below(0);
+                ig.input.actions = {};
+            }, 100);
+        });
+
+        it('should move down when the down directional button is pressed', function() {
+            ig.input.actions = { DOWN: true };
+            setTimeout(function() {
+                expect(ig.game.entities[0].vel.x).to.equal(0);
+                expect(ig.game.entities[0].vel.y).to.be.above(0);
+                ig.input.actions = {};
+            }, 100);
+        });
+
+        it('should move left when the left directional button is pressed', function() {
+            ig.input.actions = { LEFT: true };
+            setTimeout(function() {
+                expect(ig.game.entities[0].vel.x).to.be.below(0);
+                expect(ig.game.entities[0].vel.y).to.equal(0);
+                ig.input.actions = {};
+            }, 100);
+        });
+
+        it('should move right when the right directional button is pressed', function() {
+            ig.input.actions = { RIGHT: true };
+            setTimeout(function() {
+                expect(ig.game.entities[0].vel.x).to.be.above(0);
+                expect(ig.game.entities[0].vel.y).to.equal(0);
+                ig.input.actions = {};
+            }, 100);
         });
     });
 });

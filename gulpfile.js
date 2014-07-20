@@ -1,3 +1,5 @@
+/* global require */
+
 'use strict';
 
 var PORT = 8080,
@@ -5,6 +7,7 @@ var PORT = 8080,
 
 var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
+    rimraf = require('rimraf'),
     shell = require('gulp-shell'),
     webserver = require('gulp-webserver');
 
@@ -20,7 +23,11 @@ gulp.task('lint', function() {
 
 gulp.task('doc', function() {
     return gulp.src(['./README.md'])
-        .pipe(shell(['./jsdoc -c ./jsdoc.conf.json']));
+        .pipe(shell(['jsdoc -c ./jsdoc.conf.json']));
+});
+
+gulp.task('clean', function(cb) {
+    rimraf('./docs/', cb);
 });
 
 gulp.task('webserver', function() {
@@ -37,3 +44,7 @@ gulp.task('watch', function() {
 });
 
 gulp.task('default', ['webserver', 'watch']);
+
+gulp.task('build', ['clean'], function() {
+    gulp.start('lint', 'doc');
+});

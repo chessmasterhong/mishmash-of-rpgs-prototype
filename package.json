@@ -15,6 +15,7 @@
     "mocha": "^1.20.1",
     "mocha-phantomjs": "^3.5.0",
     "phantomjs": "^1.9.7-14",
-    "requirejs": "^2.1.14"
+    "requirejs": "^2.1.14",
+    "rimraf": "^2.2.8"
   }
 }

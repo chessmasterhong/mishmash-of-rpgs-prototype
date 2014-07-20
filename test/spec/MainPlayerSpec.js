@@ -30,6 +30,14 @@
         });
 
         describe('Directional movement', function() {
+            beforeEach(function(done) {
+                waitFor(function() {
+                    return ig.game.entities[mainPlayerIndex].vel.x === 0 && ig.game.entities[mainPlayerIndex].vel.y === 0;
+                }, function() {
+                    done();
+                });
+            })
+
             it('should not move when no directional keys are pressed', function() {
                 expect(ig.input.actions).to.be.empty;
                 expect(ig.game.entities[mainPlayerIndex].vel.x).to.equal(0);

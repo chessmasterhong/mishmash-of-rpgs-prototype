@@ -11,11 +11,6 @@
             .ig_debug { display: none; }
         </style>
 
-        <script type="text/javascript" src="lib/impact/impact.js"></script>
-        <script type="text/javascript" src="lib/game/main.js"></script>
-
-        <script type="text/javascript" src="test/utils/waitfor.js"></script>
-
         <script type="text/javascript" src="node_modules/requirejs/require.js"></script>
 
         <script type="text/javascript">
@@ -28,7 +23,9 @@
             });
 
             require([
-                'require', 'chai', 'mocha'
+                'require', 'chai', 'mocha',
+                'test/utils/waitfor',
+                'lib/impact/impact'
             ], function(require, chai) {
                 //assert = (chai && chai.assert) || require('chai').assert;
                 expect = (chai && chai.expect) || require('chai').expect;
@@ -39,6 +36,7 @@
                 //mocha.reporter('html');
 
                 require([
+                    'lib/game/main',
                     'spec/GameSpec',
                     'spec/MainPlayerSpec'
                 ], function(require) {

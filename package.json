@@ -17,5 +17,8 @@
     "phantomjs": "^1.9.7-14",
     "requirejs": "^2.1.14",
     "rimraf": "^2.2.8"
+  },
+  "scripts": {
+    "test": "mocha-phantomjs -R spec ./TestRunner.html"
   }
 }

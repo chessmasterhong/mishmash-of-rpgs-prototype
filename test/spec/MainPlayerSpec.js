@@ -1,5 +1,5 @@
 /* jshint expr: true */
-/* global beforeEach, describe, expect, it, waitFor */
+/* global before, describe, expect, it, waitFor */
 
 (function() {
     'use strict';
@@ -7,7 +7,7 @@
     var mainPlayerIndex = null;
 
     describe('Main Player', function() {
-        beforeEach(function(done) {
+        before(function(done) {
             waitFor(function() {
                 return ig.game;
             }, function() {

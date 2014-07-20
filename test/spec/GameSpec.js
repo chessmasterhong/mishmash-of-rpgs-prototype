@@ -1,11 +1,11 @@
 /* jshint expr: true */
-/* global beforeEach, describe, expect, it, waitFor */
+/* global before, describe, expect, it, waitFor */
 
 (function() {
     'use strict';
 
     describe('Game', function() {
-        beforeEach(function(done) {
+        before(function(done) {
             waitFor(function() {
                 return ig.game;
             }, function() {
@@ -67,6 +67,6 @@
                 expect(ig.global.TILESIZE).to.be.above(0);
                 expect(ig.global.TILESIZE % 1).to.equal(0);
             });
-        })
+        });
     });
 }());

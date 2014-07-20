@@ -29,6 +29,10 @@
             it('should have scale factor of 1', function() {
                 expect(ig.system.scale).to.equal(1);
             });
+
+            it('should be in the MainGame state', function() {
+                expect(ig.game).to.be.an.instanceof(ig.MainGame);
+            });
         });
 
         describe('Input controls', function() {

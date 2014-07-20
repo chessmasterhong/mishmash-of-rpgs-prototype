@@ -15,7 +15,7 @@ describe('Main Player', function() {
     });
 
     describe('Directional movement', function() {
-        it('should not be moving when no directional buttons are pressed', function() {
+        it('should not move when no directional buttons are pressed', function() {
             expect(ig.input.actions).to.be.empty;
             expect(ig.game.entities[0].vel.x).to.equal(0);
             expect(ig.game.entities[0].vel.y).to.equal(0);
@@ -56,5 +56,16 @@ describe('Main Player', function() {
                 ig.input.actions = {};
             }, 100);
         });
+    });
+
+    describe('Grid alignment', function() {
+        it('should be aligned to the game grid when not moving', function() {
+            waitFor(function() {
+                return ig.game.entities[0].vel.x === 0 && ig.game.entities[0].vel.y === 0;
+            }, function() {
+                expect(ig.game.entities[0].pos.x % 32).to.equal(0);
+                expect(ig.game.entities[0].pos.y % 32).to.equal(0);
+            });
+        })
     });
 });

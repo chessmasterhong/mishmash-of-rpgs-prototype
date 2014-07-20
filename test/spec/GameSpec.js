@@ -12,15 +12,15 @@ describe('Game', function() {
             expect(ig.ready).to.be.true;
         });
 
-        it('should create a canvas with width 640 pixels', function() {
+        it('should have width of 640 pixels', function() {
             expect(ig.system.width).to.equal(640);
         });
 
-        it('should create a canvas with height 480 pixels', function() {
+        it('should have height of 480 pixels', function() {
             expect(ig.system.height).to.equal(480);
         });
 
-        it('should create a canvas with scale factor of 1', function() {
+        it('should have scale factor of 1', function() {
             expect(ig.system.scale).to.equal(1);
         });
     });

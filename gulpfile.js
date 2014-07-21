@@ -23,12 +23,12 @@ gulp.task('lint', function() {
 
 gulp.task('test', function() {
     gulp.src('./TestRunner.html')
-        .pipe(shell(['mocha-phantomjs -R spec ./TestRunner.html']));
+        .pipe(shell('mocha-phantomjs -R spec ./TestRunner.html'));
 });
 
 gulp.task('doc', function() {
-    return gulp.src(['./README.md'])
-        .pipe(shell(['jsdoc -c ./jsdoc.conf.json']));
+    return gulp.src('./README.md')
+        .pipe(shell('jsdoc -c ./jsdoc.conf.json'));
 });
 
 gulp.task('clean', function(cb) {

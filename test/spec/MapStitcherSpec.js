@@ -26,6 +26,13 @@
                 expect(ig.game.mapStitcher.currMap).to.exist;
                 expect(ig.game.mapStitcher.currMap.x).to.exist;
                 expect(ig.game.mapStitcher.currMap.y).to.exist;
+
+                expect(ig.game.mapStitcher.currMap.x).to.be.at.least(0);
+                expect(ig.game.mapStitcher.currMap.y).to.be.at.least(0);
+
+                expect(ig.game.mapStitcher.currMap.x % 1).to.equal(0);
+                expect(ig.game.mapStitcher.currMap.y % 1).to.equal(0);
+
                 expect(ig.game.mapStitcher.maps[ig.game.mapStitcher.currMap.y][ig.game.mapStitcher.currMap.x]).to.exist;
             });
         });

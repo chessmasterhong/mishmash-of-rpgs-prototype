@@ -11,7 +11,10 @@
             waitFor(function() {
                 return ig.game;
             }, function() {
-                done();
+                ig.system.setGame(ig.MainGame);
+                setTimeout(function() {
+                    done();
+                }, 100);
             });
         });
 

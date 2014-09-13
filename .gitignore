@@ -1,19 +1,29 @@
-node_modules
+## External stuff ##
+bower_components/
+node_modules/
+vendor/
 
-impact
-tools
-weltmeister
-
-docs
-out
-
-media
-
+## Impact stuff ##
+impact/
+tools/
+weltmeister/
 weltmeister.html
-server.*
 
+## Project stuff ##
+media/
+server*
+
+## Documentations ##
+docs/
+out/
+
+## Quick links ##
 *.bat
 *.lnk
 
+## Temporary stuff ##
+*.log
+
+## OS-specific stuff ##
 .DS_Store
 Thumbs.db

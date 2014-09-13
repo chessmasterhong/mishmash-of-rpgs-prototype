@@ -20,6 +20,7 @@
     "gulp-jshint": "^1.8.4",
     "gulp-shell": "^0.2.9",
     "gulp-webserver": "^0.8.0",
+    "ink-docstrap": "^0.4.12",
     "jsdoc": "^3.3.0-alpha9",
     "jshint-stylish": "^0.4.0",
     "mocha": "^1.21.4",

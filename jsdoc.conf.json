@@ -18,7 +18,7 @@
         "lenient"    : true,
         "private"    : false,
         "recurse"    : true,
-        "template"   : "./docstrap/template/"
+        "template"   : "./node_modules/ink-docstrap/template/"
     },
 
     "tags": {
@@ -43,8 +43,7 @@
         "outputSourceFiles"    : true,
         "outputSourcePath"     : true,
         "systemName"           : "Mishmash of RPGs",
-        "theme"                : "default",
-        "tutorials"            : "./tutorials/"
+        "theme"                : "cerulean"
     },
 
     "markdown": {

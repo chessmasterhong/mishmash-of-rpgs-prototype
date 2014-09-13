@@ -23,9 +23,16 @@ Game controls and movement.
 
 ### v0.0.3
 
-Game states and map transitions.
+Game states.
 
-- [ ] Establish game states and functionalities.
+- [ ] Establish major game states and state functionalities.
+- [ ] Establish game state flow sequence.
+- [ ] Create title screen prototype.
+- [ ] Create credits screen prototype.
+
+
+## Future Plans
+
 - [ ] Implement map transition (ability to move between maps/zones/levels/floors and back).
 - [ ] Ensure correct placement of player when returning back to the world map.
 

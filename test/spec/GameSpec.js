@@ -30,7 +30,7 @@
                 expect(ig.system.scale).to.equal(1);
             });
 
-            it('should be in the Title state', function() {
+            it('should be in the Title game state', function() {
                 expect(ig.game).to.be.an.instanceof(ig.Title);
             });
         });

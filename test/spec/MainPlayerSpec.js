@@ -13,6 +13,7 @@
             }, function() {
                 ig.system.setGame(ig.MainGame);
                 setTimeout(function() {
+                    expect(ig.game).to.be.an.instanceof(ig.MainGame);
                     done();
                 }, 100);
             });

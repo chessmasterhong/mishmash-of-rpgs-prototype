@@ -2,12 +2,14 @@
 
 'use strict';
 
-var PORT = 8080,
+var HOST = '127.0.0.1',
+    PORT = 8080,
     SOURCE_DIR = './lib/';
 
 var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     rimraf = require('rimraf'),
+    runSequence = require('run-sequence'),
     shell = require('gulp-shell'),
     webserver = require('gulp-webserver');
 
@@ -22,11 +24,11 @@ gulp.task('lint', function() {
 });
 
 gulp.task('test', function() {
-    gulp.src('./TestRunner.html')
+    return gulp.src('./TestRunner.html')
         .pipe(shell('mocha-phantomjs -R spec ./TestRunner.html'));
 });
 
-gulp.task('doc', function() {
+gulp.task('docs', function() {
     return gulp.src('./README.md')
         .pipe(shell('jsdoc -c ./jsdoc.conf.json'));
 });
@@ -38,9 +40,8 @@ gulp.task('clean', function(cb) {
 gulp.task('webserver', function() {
     gulp.src('.')
         .pipe(webserver({
-            host: '127.0.0.1',
-            port: PORT,
-            livereload: true
+            host: HOST,
+            port: PORT
         }));
 });
 
@@ -50,6 +51,9 @@ gulp.task('watch', function() {
 
 gulp.task('default', ['webserver', 'watch']);
 
-gulp.task('build', ['clean', 'lint', 'test'], function() {
-    gulp.start('doc');
+gulp.task('build', function() {
+    runSequence(
+        ['clean', 'lint', 'test'],
+        'docs'
+    );
 });

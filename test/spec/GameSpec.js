@@ -63,9 +63,9 @@
 
         describe('Grid', function() {
             it('should have a valid positive integer tile size', function() {
-                expect(ig.global.TILESIZE).to.be.a('number');
-                expect(ig.global.TILESIZE).to.be.above(0);
-                expect(ig.global.TILESIZE % 1).to.equal(0);
+                expect(ig.TILESIZE).to.be.a('number');
+                expect(ig.TILESIZE).to.be.above(0);
+                expect(ig.TILESIZE % 1).to.equal(0);
             });
         });
     });
